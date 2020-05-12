@@ -12,19 +12,19 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 12,
     fontWeight: 500,
     fontFamily: "Roboto",
-    padding: '0rem 0rem',
+    padding: "0rem 0rem",
     height: 24,
 
-    '& .MuiChip-avatar': {
+    "& .MuiChip-avatar": {
       height: 20,
       width: 20,
-      marginLeft: 2
-    }
+      marginLeft: 2,
+    },
   },
   deleteIcon: {
     width: 9,
     height: 9,
-    margin: '0 8px 0 -6px'
+    margin: "0 8px 0 -6px",
   },
 }));
 
@@ -41,7 +41,13 @@ const Tag = () => {
 
   return (
     <Chip
-      avatar={<Avatar variant="rounded" alt="Natacha" src="https://source.unsplash.com/random" />}
+      avatar={
+        <Avatar
+          variant="rounded"
+          alt="Natacha"
+          src="https://source.unsplash.com/random"
+        />
+      }
       label="Tomothy Henry"
       onClick={handleClick}
       onDelete={handleDelete}

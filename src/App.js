@@ -1,22 +1,44 @@
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import BackBtn from "./components/buttons/BackBtn";
-import Tag from "./components/tag/Tag";
-import PrimaryBtn from './components/buttons/PrimaryBtn'
-import SearchInput from './components/inputs/SearchInput'
-import TagPeopleBtn from './components/buttons/TagPeopleBtn'
+import TagPeopleBtn from "./components/buttons/TagPeopleBtn";
+import PrimaryModal from "./components/modals/PrimaryModal";
+import { usePrimaryModal } from "./components/modals/usePrimaryModal";
+import User from "./components/user/User";
+
+const useStyles = makeStyles((theme) => ({
+  appRoot: {
+    padding: "1.2rem",
+  },
+  tagPeopleBtnRoot: {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+}));
 
 function App() {
+  const classes = useStyles();
+  const { openPrimary, togglePrimary } = usePrimaryModal();
+
   return (
-    <div className="App">
-      <h2>Tag People</h2>
-      <BackBtn  />
-      <Tag />
-      <div>
-        <PrimaryBtn title="done" />
-      </div>
-      <div>
-        <TagPeopleBtn />
-      </div>
+    <div className={classes.appRoot}>
+      {/* Modal */}
+      <PrimaryModal
+        openPrimary={openPrimary}
+        togglePrimary={togglePrimary}
+        width={530}
+        scrollType="body"
+        hideCrossBtn
+      >
+        Hello
+      </PrimaryModal>
+
+      <User />
+      <TagPeopleBtn
+        onClick={togglePrimary}
+        className={classes.tagPeopleBtnRoot}
+      />
     </div>
   );
 }

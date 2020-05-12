@@ -4,6 +4,8 @@ import TagPeopleBtn from "./components/buttons/TagPeopleBtn";
 import PrimaryModal from "./components/modals/PrimaryModal";
 import { usePrimaryModal } from "./components/modals/usePrimaryModal";
 import User from "./components/user/User";
+import faker from 'faker'
+import TagPeopleModal from './components/tag-people-modal/TagPeopleModal'
 
 const useStyles = makeStyles((theme) => ({
   appRoot: {
@@ -21,17 +23,21 @@ function App() {
   const classes = useStyles();
   const { openPrimary, togglePrimary } = usePrimaryModal();
 
+  console.log('faker', faker.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"));
+
+
   return (
     <div className={classes.appRoot}>
       {/* Modal */}
       <PrimaryModal
         openPrimary={openPrimary}
         togglePrimary={togglePrimary}
-        width={530}
+        width={570}
+        // height={500}
         scrollType="body"
         hideCrossBtn
       >
-        Hello
+        <TagPeopleModal closeModal={togglePrimary} />
       </PrimaryModal>
 
       <User />

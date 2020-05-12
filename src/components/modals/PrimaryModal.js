@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
   paperRoot: (props) => ({
     width: theme.typography.pxToRem(props.width),
     maxWidth: theme.typography.pxToRem(props.maxWidth),
+    height: theme.typography.pxToRem(props.height),
+
+    "&.MuiPaper-rounded": {
+      borderRadius: 8,
+    },
   }),
   closeBtn: {
     width: "1.5rem",
@@ -32,7 +37,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PrimaryModal = React.memo((props) => {
-  const { openPrimary, togglePrimary, hideCrossBtn, children, scrollType } = props;
+  const {
+    openPrimary,
+    togglePrimary,
+    hideCrossBtn,
+    children,
+    scrollType,
+  } = props;
 
   const classes = useStyles(props);
 
@@ -47,6 +58,9 @@ const PrimaryModal = React.memo((props) => {
       aria-labelledby="alert-dialog-slide-title"
       aria-describedby="alert-dialog-slide-description"
       classes={{ paper: classes.paperRoot }}
+      PaperProps={{
+        rounded: classes.paperRounded,
+      }}
     >
       {!hideCrossBtn && (
         <div onClick={togglePrimary} className={classes.closeBtn}>

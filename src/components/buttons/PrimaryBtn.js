@@ -16,7 +16,7 @@ const useStyle = makeStyles((theme) => ({
     color: props.txtcolor ? props.txtcolor : "#fff",
 
     "&:hover": {
-      backgroundColor: props.hoverbg ? props.hoverbg : "#079d49d6",
+      backgroundColor: props.hoverbg ? props.hoverbg : "rgb(5, 204, 144)",
       color: props.hovertxt ? props.hovertxt : "#fff",
     },
 

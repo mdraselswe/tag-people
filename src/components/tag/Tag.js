@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Roboto",
     padding: "0rem 0rem",
     height: 24,
+    margin: 3,
 
     "& .MuiChip-avatar": {
       height: 20,

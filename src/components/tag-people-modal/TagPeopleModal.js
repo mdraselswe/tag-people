@@ -10,6 +10,7 @@ import { listOfPeople } from "../../data/data";
 import Typography from "@material-ui/core/Typography";
 import TagGroupBox from "../tag-group-box/TagGroupBox";
 import PrimaryBtn from "../buttons/PrimaryBtn";
+import Tag from "../tag/Tag";
 
 const useStyles = makeStyles((theme) => ({
   modalRoot: {
@@ -42,7 +43,8 @@ const TagPeopleModal = ({ closeModal }) => {
       </div>
 
       <SearchInput />
-      <TagGroupBox />
+
+      <TagGroupBox></TagGroupBox>
       <div className={classes.doneBtnRoot}>
         <PrimaryBtn title="Done" />
       </div>

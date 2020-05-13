@@ -17,6 +17,11 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     fontFamily: "Roboto",
   },
+  listItemTextSecondary: {
+    color: "rgba(0, 70, 95, .5)",
+    fontSize: 12,
+    fontFamily: "Roboto",
+  },
   listAvatarRoot: {
     width: 25,
     height: 25,
@@ -44,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 185,
     overflow: "auto",
   },
+  textRoot: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 }));
 
 export default function PeopleList({ listPeople, handleList }) {
@@ -65,6 +75,7 @@ export default function PeopleList({ listPeople, handleList }) {
                 button: classes.listItemButton,
               }}
               onClick={() => handleList(list)}
+              disabled={list.isDisabled}
             >
               <ListItemAvatar classes={{ root: classes.listItemAvatarRoot }}>
                 <Avatar
@@ -78,9 +89,14 @@ export default function PeopleList({ listPeople, handleList }) {
                 />
               </ListItemAvatar>
               <ListItemText
-                classes={{ primary: classes.listItemTextPrimary }}
+                classes={{
+                  primary: classes.listItemTextPrimary,
+                  root: classes.textRoot,
+                  secondary: classes.listItemTextSecondary,
+                }}
                 id={labelId}
                 primary={`${list.name}`}
+                secondary={list.message}
               />
             </ListItem>
           );

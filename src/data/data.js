@@ -6,7 +6,8 @@ export const listOfPeople = [
     name: "Muhammad Rasel",
     src: faker.image.people(),
     isDisabled: true,
-  }
+    message: "Dosen’t want to be tagged",
+  },
 ];
 
 Array.from(Array(12).keys()).forEach((e) =>
@@ -15,6 +16,7 @@ Array.from(Array(12).keys()).forEach((e) =>
     name: faker.name.findName(),
     src: faker.image.people(),
     isDisabled: false,
+    message: "",
   })
 );
 

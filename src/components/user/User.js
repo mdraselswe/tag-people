@@ -1,7 +1,6 @@
 import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import faker from "faker";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({

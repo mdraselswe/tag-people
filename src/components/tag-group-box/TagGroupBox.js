@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 8,
     margin: "0 12px",
     maxHeight: 103,
-    overflow: 'auto'
+    overflow: "auto",
   }),
 }));
 

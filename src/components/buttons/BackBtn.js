@@ -11,7 +11,7 @@ const useStyle = makeStyles((theme) => ({
     fontWeight: "500",
     textTransform: "capitalize",
     fontSize: 12,
-    boxShadow: '0px 0px 4px rgba(0, 0, 0, 0.08)',
+    boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.08)",
 
     backgroundColor: props.bgcolor ? props.bgcolor : "#DDE2EF",
     color: props.txtcolor ? props.txtcolor : "#525B74",

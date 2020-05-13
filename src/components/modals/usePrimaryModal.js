@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export const usePrimaryModal = () => {
   const [openPrimary, setIsPrimaryOpen] = useState(false);

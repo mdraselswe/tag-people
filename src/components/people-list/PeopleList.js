@@ -56,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
   },
   listItemRoot: {
     paddingTop: 5,
-    paddingBottom: 5
-  }
+    paddingBottom: 5,
+  },
 }));
 
 export default function PeopleList({ listPeople, handleList }) {
@@ -77,7 +77,7 @@ export default function PeopleList({ listPeople, handleList }) {
               classes={{
                 gutters: classes.listItemGutter,
                 button: classes.listItemButton,
-                root: classes.listItemRoot
+                root: classes.listItemRoot,
               }}
               onClick={() => handleList(list)}
               disabled={list.isDisabled}

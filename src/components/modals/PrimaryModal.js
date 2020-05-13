@@ -1,8 +1,7 @@
+import { makeStyles } from "@material-ui/core";
 import Dialog from "@material-ui/core/Dialog";
 import Slide from "@material-ui/core/Slide";
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-// import {Clear} from '@material-ui/icons';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -64,7 +63,6 @@ const PrimaryModal = React.memo((props) => {
       {!hideCrossBtn && (
         <div onClick={togglePrimary} className={classes.closeBtn}>
           &#10005;
-          {/* <Clear /> */}
         </div>
       )}
       {children}

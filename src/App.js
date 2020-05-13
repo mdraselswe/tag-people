@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import TagPeopleBtn from "./components/buttons/TagPeopleBtn";
 import PrimaryModal from "./components/modals/PrimaryModal";
 import { usePrimaryModal } from "./components/modals/usePrimaryModal";
-import TagGroupBox from "./components/tag-group-box/TagGroupBox";
 import TagPeopleModal from "./components/tag-people-modal/TagPeopleModal";
 import Tag from "./components/tag/Tag";
 import User from "./components/user/User";
+import { listOfPeople } from "./data/data";
 import { addTagPeople } from "./lib/addTagPeople";
+import { comparer } from "./lib/compareTwoArray";
 
 const useStyles = makeStyles((theme) => ({
   appRoot: {
@@ -46,6 +47,12 @@ function App() {
       <Tag key={list.id} {...list} handleDelete={handleTagDelete} />
     ));
 
+  const filteredList = listOfPeople.filter(comparer(selectedListArr));
+
+  console.log("listOfPeople", listOfPeople);
+  console.log("selectedListArr", selectedListArr);
+  console.log("filteredList", filteredList);
+
   return (
     <div className={classes.appRoot}>
       {/* Modal */}
@@ -62,6 +69,7 @@ function App() {
           closeModal={togglePrimary}
           handleList={handleList}
           isListLength={isListLength}
+          filteredList={filteredList}
         />
       </PrimaryModal>
 

@@ -1,84 +1,50 @@
-import React from "react";
-import TextField from "@material-ui/core/TextField";
+import InputBase from "@material-ui/core/InputBase";
 import { makeStyles } from "@material-ui/core/styles";
-import { ReactComponent as SearchIcon } from "../../assets/search.svg";
+import React from "react";
 
-const useStyles = makeStyles(theme => ({
-    inputRoot: {
-      '& label.Mui-focused': {
-        color: '#079D43',
-        fontWeight: 600,
-      },
-      '& .MuiInput-underline:after': {
-        borderBottomColor: '#A0E4BE',
-      },
-      '& .MuiInput-underline.Mui-error:after': {
-        borderBottomColor: '#f44336',
-      },
-      '& .MuiInput-underline:before': {
-        borderBottomColor: '#D7D7DD',
-      },
-      '&:hover .MuiInput-underline:before': {
-        borderBottomColor: '#A0E4BE',
-      },
-      '& .MuiInputLabel-shrink': {
-        color: '#079D43',
-        fontWeight: 600,
-      },
-  
-      '& .MuiInputBase-root': {
-        color: '#333333',
-      },
-  
-      // When variant is outlined
-      '& .MuiOutlinedInput-root': {
-        '& fieldset': {
-          borderColor: '#D7D7DD',
-        },
-        '&:hover fieldset': {
-          borderColor: '#D7D7DD',
-        },
-        '&.Mui-focused fieldset': {
-          borderColor: '#D7D7DD',
-          borderWidth: '1px',
-        },
-      },
-      '& .MuiOutlinedInput-input': {
-        padding: 14,
-      },
-      '& .MuiInputLabel-outlined': {
-        transform: 'translate(14px, 15px) scale(1)',
-      },
-      '& .MuiInputLabel-outlined.MuiInputLabel-shrink': {
-        transform: 'translate(14px, -6px) scale(.75)',
-      },
-  
-      // When Multiline Input
-      '& .MuiOutlinedInput-multiline': {
-        padding: 5,
-      },
-  
-      // Helper Text
-      '& .MuiFormHelperText-contained': {
-        margin: '8px 0 0',
-      },
+const useStyles = makeStyles({
+  root: {
+    display: "flex",
+    alignItems: "center",
+    borderRadius: "45px",
+    border: "1px solid #CCDADF",
+    padding: "0",
+    overflow: "hidden",
+    width: "100%",
+  },
+  inputRoot: {
+    marginLeft: "2rem",
+    flex: 1,
+  },
+  iconButton: {
+    borderRadius: 0,
+    padding: "0.25rem .5rem",
+  },
+  input: {
+    "&::placeholder": {
+      fontSize: 12,
+      color: "rgba(0, 0, 0, .5)",
+      textAlign: "center",
     },
-  }));
+  },
+});
 
-const SearchInput = () => {
+const SearchInput = (props) => {
+  const { ...others } = props;
+
   const classes = useStyles();
 
   return (
-    <TextField
-      id="outlined-search"
-      label="Search"
-      type="search"
-      variant="outlined"
-      classes={{ root: classes.inputRoot }}
-      InputProps={{
-        endAdornment: <SearchIcon />
-      }}
-    />
+    <div className={classes.root}>
+      <InputBase
+        placeholder="Search"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.input,
+        }}
+        {...others}
+      />
+    </div>
   );
 };
 

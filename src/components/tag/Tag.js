@@ -26,6 +26,21 @@ const useStyles = makeStyles((theme) => ({
     width: 9,
     height: 9,
     margin: "0 8px 0 -6px",
+
+    "& path": {
+      stroke: "#263251",
+    },
+
+    "&:hover": {
+      transform: "scale(1.8)",
+      background: "#263251",
+      borderRadius: 100,
+      padding: 2,
+
+      "& path": {
+        stroke: "#fff",
+      },
+    },
   },
 }));
 
@@ -44,9 +59,9 @@ const Tag = ({ id, name, src, handleDelete }) => {
       onDelete={() => handleDelete(id)}
       classes={{
         root: classes.chipRoot,
-        deleteIcon: classes.deleteIcon,
+        // deleteIcon: classes.deleteIcon,
       }}
-      deleteIcon={<CloseIcon />}
+      deleteIcon={<CloseIcon className={classes.deleteIcon} />}
     />
   );
 };

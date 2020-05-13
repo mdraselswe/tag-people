@@ -49,9 +49,9 @@ function App() {
 
   const filteredList = listOfPeople.filter(comparer(selectedListArr));
 
-  console.log("listOfPeople", listOfPeople);
-  console.log("selectedListArr", selectedListArr);
-  console.log("filteredList", filteredList);
+  // console.log("listOfPeople", listOfPeople);
+  // console.log("selectedListArr", selectedListArr);
+  // console.log("filteredList", filteredList);
 
   return (
     <div className={classes.appRoot}>

@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 12,
   },
   listRoot: {
-    maxHeight: 185,
+    maxHeight: 255,
     overflow: "auto",
   },
   textRoot: {
@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  listItemRoot: {
+    paddingTop: 5,
+    paddingBottom: 5
+  }
 }));
 
 export default function PeopleList({ listPeople, handleList }) {
@@ -73,6 +77,7 @@ export default function PeopleList({ listPeople, handleList }) {
               classes={{
                 gutters: classes.listItemGutter,
                 button: classes.listItemButton,
+                root: classes.listItemRoot
               }}
               onClick={() => handleList(list)}
               disabled={list.isDisabled}

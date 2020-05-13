@@ -1,16 +1,13 @@
-import Avatar from "@material-ui/core/Avatar";
-import Chip from "@material-ui/core/Chip";
 import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
 import React, { useState } from "react";
 import { ReactComponent as TagIcon } from "../../assets/tag.svg";
+import { listOfPeople } from "../../data/data";
 import BackBtn from "../buttons/BackBtn";
+import PrimaryBtn from "../buttons/PrimaryBtn";
 import SearchInput from "../inputs/SearchInput";
 import PeopleList from "../people-list/PeopleList";
-import { listOfPeople } from "../../data/data";
-import Typography from "@material-ui/core/Typography";
 import TagGroupBox from "../tag-group-box/TagGroupBox";
-import PrimaryBtn from "../buttons/PrimaryBtn";
-import Tag from "../tag/Tag";
 
 const useStyles = makeStyles((theme) => ({
   modalRoot: {
@@ -27,9 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TagPeopleModal = ({ closeModal }) => {
+const TagPeopleModal = ({ closeModal, handleList, tagList, isListLength }) => {
   const classes = useStyles();
-  const [listPeople, setListPeople] = useState(listOfPeople);
 
   return (
     <div className={classes.modalRoot}>
@@ -44,12 +40,15 @@ const TagPeopleModal = ({ closeModal }) => {
 
       <SearchInput />
 
-      <TagGroupBox></TagGroupBox>
-      <div className={classes.doneBtnRoot}>
-        <PrimaryBtn title="Done" />
-      </div>
+      <TagGroupBox isListLength={isListLength}>{tagList()}</TagGroupBox>
 
-      <PeopleList listPeople={listPeople} />
+      {isListLength && (
+        <div className={classes.doneBtnRoot}>
+          <PrimaryBtn title="Done" onClick={closeModal} />
+        </div>
+      )}
+
+      <PeopleList listPeople={listOfPeople} handleList={handleList} />
     </div>
   );
 };

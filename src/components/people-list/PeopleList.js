@@ -1,13 +1,11 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Checkbox from "@material-ui/core/Checkbox";
-import Avatar from "@material-ui/core/Avatar";
-import { Typography } from "@material-ui/core";
+import ListItemText from "@material-ui/core/ListItemText";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   peopleListRoot: {
@@ -48,30 +46,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PeopleList({ listPeople }) {
+export default function PeopleList({ listPeople, handleList }) {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([]);
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-  console.log(checked);
 
   return (
     <div className={classes.peopleListRoot}>
       <Typography className={classes.listHeader}>Select people</Typography>
 
       <List classes={{ root: classes.listRoot }}>
-        {listPeople.map((e, value) => {
+        {listPeople.map((list, value) => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
             <ListItem
@@ -81,14 +64,14 @@ export default function PeopleList({ listPeople }) {
                 gutters: classes.listItemGutter,
                 button: classes.listItemButton,
               }}
-              onClick={handleToggle(value)}
+              onClick={() => handleList(list)}
             >
               <ListItemAvatar classes={{ root: classes.listItemAvatarRoot }}>
                 <Avatar
                   variant="rounded"
                   alt={`Avatar n°${value + 1}`}
                   // src={`/static/images/avatar/${value + 1}.jpg`}
-                  src={`${e.src}`}
+                  src={`${list.src}`}
                   classes={{
                     root: classes.listAvatarRoot,
                   }}
@@ -97,7 +80,7 @@ export default function PeopleList({ listPeople }) {
               <ListItemText
                 classes={{ primary: classes.listItemTextPrimary }}
                 id={labelId}
-                primary={`${e.name}`}
+                primary={`${list.name}`}
               />
             </ListItem>
           );

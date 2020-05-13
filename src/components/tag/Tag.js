@@ -29,12 +29,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Tag = () => {
+const Tag = ({ id, name, src, handleDelete }) => {
   const classes = useStyles();
-
-  const handleDelete = () => {
-    console.info("You clicked the delete icon.");
-  };
 
   const handleClick = () => {
     console.info("You clicked the Chip.");
@@ -42,16 +38,10 @@ const Tag = () => {
 
   return (
     <Chip
-      avatar={
-        <Avatar
-          variant="rounded"
-          alt="Natacha"
-          src="https://source.unsplash.com/random"
-        />
-      }
-      label="Tomothy Henry"
+      avatar={<Avatar variant="rounded" alt="Natacha" src={src} />}
+      label={name}
       onClick={handleClick}
-      onDelete={handleDelete}
+      onDelete={() => handleDelete(id)}
       classes={{
         root: classes.chipRoot,
         deleteIcon: classes.deleteIcon,

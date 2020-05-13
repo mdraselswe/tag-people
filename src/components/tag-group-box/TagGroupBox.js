@@ -2,11 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
-  tagGroupBoxRoot: ({ hideBorder }) => ({
-    padding: 8,
-    border: !hideBorder ? "1px solid #CCDADF" : "none",
+  tagGroupBoxRoot: ({ isListLength }) => ({
+    padding: isListLength ? 8 : 15,
+    border: "1px solid #CCDADF",
     borderRadius: 8,
-    margin: 12
+    margin: "0 12px",
   }),
 }));
 
